@@ -5,10 +5,11 @@ namespace App\Filament\Resources\Authors;
 use App\Filament\Resources\Authors\Pages\CreateAuthor;
 use App\Filament\Resources\Authors\Pages\EditAuthor;
 use App\Filament\Resources\Authors\Pages\ListAuthors;
-use App\Filament\Resources\Authors\Schemas\AuthorForm;
-use App\Filament\Resources\Authors\Tables\AuthorsTable;
 use App\Models\Author;
 use BackedEnum;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\EditAction;
+use Filament\Actions\ViewAction;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -18,9 +19,7 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\FileUpload;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Actions\Action;
-use Filament\Tables\Actions\ViewAction;
-use Filament\Tables\Actions\EditAction;
+
 
 
 class AuthorResource extends Resource
@@ -50,7 +49,7 @@ class AuthorResource extends Resource
 
     public static function table(Table $table): Table
     {
-        // return AuthorsTable::configure($table);
+
         return $table
             ->columns([
                 ImageColumn::make('avatar')
@@ -62,9 +61,11 @@ class AuthorResource extends Resource
             ->filters([
                 //
             ])
-        ->actions([
-                //
-            ])
+            ->actions([
+                ViewAction::make(),
+                EditAction::make(),
+                DeleteAction::make(),
+            ]);
     }
 
     public static function getRelations(): array
