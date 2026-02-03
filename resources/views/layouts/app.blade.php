@@ -13,10 +13,9 @@
   <div class="w-full">
     @include('includes.navbar')
     @yield('content')
+     @include('includes.footer')
   </div>
     
-   
-
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="{{asset('asset/js/swiper.js')}}"></script>
