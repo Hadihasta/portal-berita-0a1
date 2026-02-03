@@ -25,6 +25,8 @@ use Filament\Actions\EditAction;
 use Filament\Actions\DeleteAction;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Filters\SelectFilter;
+use Filament\Forms\Components\Toggle;
+use Filament\Tables\Columns\ToggleColumn;
 
 class ArticlesNewsResource extends Resource
 {
@@ -55,6 +57,7 @@ class ArticlesNewsResource extends Resource
             RichEditor::make('content')
                 ->required()
                 ->columnSpanFull(),
+
         ]);
     }
 
@@ -66,6 +69,7 @@ class ArticlesNewsResource extends Resource
             TextColumn::make('title'),
             TextColumn::make('slug'),
             ImageColumn::make('thumbnail'),
+            ToggleColumn::make('is_featured'),
         ])
             ->filters([
                 SelectFilter::make('author_id')

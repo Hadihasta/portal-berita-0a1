@@ -15,7 +15,7 @@ class ArticlesNews extends Model
         'slug',
         'thumbnail',
         'content',
-        'is_featured',
+        'is_featured' => 'boolean',
         'views',
     ];
 
