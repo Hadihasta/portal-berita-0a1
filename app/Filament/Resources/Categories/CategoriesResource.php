@@ -20,6 +20,7 @@ use Illuminate\Support\Str;
 use Filament\Actions\ViewAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\DeleteAction;
+use Filament\Tables\Filters\SelectFilter;
 
 class CategoriesResource extends Resource
 {
@@ -46,11 +47,11 @@ class CategoriesResource extends Resource
             TextColumn::make('title'),
             TextColumn::make('slug'),
         ])
-            ->actions([
+            ->recordActions([
                 ViewAction::make(),
                 EditAction::make(),
                 DeleteAction::make(),
-            ]);;
+            ]);
     }
 
     public static function getRelations(): array
