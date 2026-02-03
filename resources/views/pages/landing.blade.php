@@ -6,172 +6,6 @@
 
 
 <style>
-/* ================= TAMBAHAN STYLE (YANG KAMU TAMBAHKAN) ================= */
-
-/* Swiper Kedua */
-.hero-slide {
-    position: relative;
-    height: 320px;
-    border-radius: 20px;
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
-}
-
-.hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0.1));
-}
-
-.hero-content {
-    position: absolute;
-    bottom: 0;
-    padding: 1.5rem;
-    z-index: 2;
-}
-
-.hero-category {
-    display: inline-block;
-    background: var(--primary);
-    color: #fff;
-    font-size: 0.75rem;
-    padding: 0.35rem 0.8rem;
-    border-radius: 999px;
-    margin-bottom: 0.5rem;
-}
-
-.hero-title {
-    color: #fff;
-    font-size: 1.25rem;
-    font-weight: 700;
-    line-height: 1.4;
-}
-
-/* ================= NEWS CONTAINER ================= */
-.container-news {
-    max-width: 1400px;
-    margin: 5rem auto;
-    padding: 0 2rem;
-}
-
-.news-layout {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 2rem;
-}
-
-/* Main News List */
-.news-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.news-item {
-    display: flex;
-    gap: 1.25rem;
-    border: 2px solid var(--border-light);
-    border-radius: 16px;
-    padding: 1rem;
-    text-decoration: none;
-    color: inherit;
-    transition: all 0.3s ease;
-}
-
-.news-item:hover {
-    border-color: var(--primary);
-    transform: translateX(6px);
-}
-
-.news-item img {
-    width: 200px;
-    height: 140px;
-    object-fit: cover;
-    border-radius: 12px;
-}
-
-.news-meta {
-    font-size: 0.75rem;
-    color: var(--text-gray);
-    margin-bottom: 0.25rem;
-}
-
-.news-category {
-    color: var(--primary);
-    font-weight: 600;
-}
-
-.news-title {
-    font-size: 1.05rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-}
-
-.news-excerpt {
-    font-size: 0.85rem;
-    color: var(--text-gray);
-    line-height: 1.5;
-}
-
-/* Sidebar */
-.sidebar {
-    border: 2px solid var(--border-light);
-    border-radius: 16px;
-    padding: 1.5rem;
-}
-
-.sidebar h3 {
-    font-size: 1.25rem;
-    font-weight: 800;
-    margin-bottom: 1.25rem;
-}
-
-.side-item {
-    display: flex;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
-    text-decoration: none;
-    color: inherit;
-}
-
-.side-item img {
-    width: 70px;
-    height: 70px;
-    border-radius: 10px;
-    object-fit: cover;
-}
-
-.side-title {
-    font-size: 0.85rem;
-    font-weight: 600;
-}
-
-.side-time {
-    font-size: 0.7rem;
-    color: var(--text-gray);
-}
-
-/* Responsive */
-@media (max-width: 1024px) {
-    .news-layout {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 640px) {
-    .news-item {
-        flex-direction: column;
-    }
-
-    .news-item img {
-        width: 100%;
-        height: 200px;
-    }
-}
-</style>
-
-<style>
     :root {
         --primary: #FF6B35;
         --primary-dark: #E85A2A;
@@ -483,8 +317,159 @@
         line-height: 1.5;
     }
     
+
+.hero-slide {
+    position: relative;
+    height: 320px;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0.1));
+}
+
+.hero-content {
+    position: absolute;
+    bottom: 0;
+    padding: 1.5rem;
+    z-index: 2;
+}
+
+.hero-category {
+    display: inline-block;
+    background: var(--primary);
+    color: #fff;
+    font-size: 0.75rem;
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    margin-bottom: 0.5rem;
+}
+
+.hero-title {
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+/* ================= NEWS CONTAINER ================= */
+.container-news {
+    max-width: 1400px;
+    margin: 5rem auto;
+    padding: 0 2rem;
+}
+
+.news-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+}
+
+/* Main News List */
+.news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.news-item {
+    display: flex;
+    gap: 1.25rem;
+    border: 2px solid var(--border-light);
+    border-radius: 16px;
+    padding: 1rem;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+.news-item:hover {
+    border-color: var(--primary);
+    transform: translateX(6px);
+}
+
+.news-item img {
+    width: 200px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.news-meta {
+    font-size: 0.75rem;
+    color: var(--text-gray);
+    margin-bottom: 0.25rem;
+}
+
+.news-category {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.news-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.news-excerpt {
+    font-size: 0.85rem;
+    color: var(--text-gray);
+    line-height: 1.5;
+}
+
+/* Sidebar news */
+.sidebar {
+    border: 2px solid var(--border-light);
+    border-radius: 16px;
+    padding: 1.5rem;
+}
+
+.sidebar h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 1.25rem;
+}
+
+.side-item {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    color: inherit;
+}
+
+.side-item img {
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.side-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.side-time {
+    font-size: 0.7rem;
+    color: var(--text-gray);
+}
+
+
+
+
     /* Responsive */
     @media (max-width: 1024px) {
+
+           .news-layout {
+        grid-template-columns: 1fr;
+    }
         .news-grid {
             grid-template-columns: 1fr;
         }
@@ -524,6 +509,17 @@
     }
     
     @media (max-width: 640px) {
+
+        
+    .news-item {
+        flex-direction: column;
+    }
+
+    .news-item img {
+        width: 100%;
+        height: 200px;
+    }
+
         .swiper-slide {
             height: 350px;
         }
@@ -603,7 +599,7 @@
     {{-- MAIN --}}
     <div class="news-list">
       @foreach ($news as $item)
-      <a href="#" class="news-item">
+      <a href="{{route('news.show',$item->slug)}}" class="news-item"> test
         <img src="{{ asset('storage/'.$item->thumbnail) }}" alt="">
         <div>
           <div class="news-meta">
@@ -620,7 +616,7 @@
     {{-- SIDEBAR --}}
     <aside class="sidebar">
       <h3>Terpopuler</h3>
-      @foreach ($news->take(6) as $side)
+      @foreach ($newsDownList as $side)
       <a href="#" class="side-item">
         <img src="{{ asset('storage/'.$side->thumbnail) }}" alt="">
         <div>
