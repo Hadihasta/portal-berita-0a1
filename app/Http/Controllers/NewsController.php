@@ -6,8 +6,18 @@ use App\Models\ArticlesNews;
 use App\Models\Categories;
 use Illuminate\Http\Request;
 
+
 class NewsController extends Controller
 {
+
+    public function index()
+    {
+        $news = ArticlesNews::paginate(10);
+
+        return view('pages.news.index', compact('news'));
+    }
+
+
     public function show($slug)
     {
         $news = ArticlesNews::where('slug', $slug)->first();

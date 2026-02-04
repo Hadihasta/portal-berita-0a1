@@ -599,7 +599,7 @@
     {{-- MAIN --}}
     <div class="news-list">
       @foreach ($news as $item)
-      <a href="{{route('news.show',$item->slug)}}" class="news-item"> test
+      <a href="{{route('news.show',$item->slug)}}" class="news-item"> 
         <img src="{{ asset('storage/'.$item->thumbnail) }}" alt="">
         <div>
           <div class="news-meta">
@@ -688,7 +688,7 @@
         <div>
             <h2 class="section-title">Berita Unggulan
         </div>
-        <a href="{{ url('semuaberita.html') }}" class="btn-view-all">Lihat Semua</a>
+        <a href="{{route('news.index')}}"class="btn-view-all">Lihat Semua</a>
     </div>
     
     <div class="featured-grid">

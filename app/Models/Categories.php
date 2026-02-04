@@ -14,6 +14,6 @@ class Categories extends Model
     public function news()
     {
         //one to many
-        return $this->hasMany(ArticlesNews::class);
+        return $this->hasMany(ArticlesNews::class, 'category_id');
     }
 }
