@@ -5,7 +5,7 @@
             <!-- Logo dan Menu Toggle -->
             <div class="flex items-center justify-between w-full lg:w-auto">
                 <!-- Logo -->
-                <a href="{{ url('index.html') }}" class="flex items-center gap-2">
+                <a href="{{ route('landing')}}"  class="flex items-center gap-2">
                     <div class="logo-section">
                         {{-- <div class="logo">L</div> --}}
                         <img id="logo_navbar" src="{{asset('asset/img/Logo.png')}}" alt="Logo">
@@ -23,11 +23,11 @@
             <div id="menu" class="hidden lg:flex flex-col lg:flex-row lg:items-center lg:gap-10 w-full lg:w-auto mt-5 lg:mt-0">
                 <ul class="nav-menu flex flex-col lg:flex-row items-start lg:items-center gap-4 font-medium text-base w-full lg:w-auto">
                     <li>
-                        <a href="{{ url('index.html') }}" class="nav-link active">Beranda</a>
+                        <a href="{{ route('landing')}}"  class="nav-link {{request()->is('/') ? 'active' : ''}}">Beranda</a>
                     </li>
                     @foreach (\App\Models\Categories::all() as $category)
                     <li>
-                        <a href="{{ url('pariwisata.html') }}" class="nav-link">{{ $category->title }}</a>
+                        <a href="{{ route('news.category', $category->slug)}}"class="nav-link">{{ $category->title }}</a>
                     </li>
                     @endforeach
                 </ul>
