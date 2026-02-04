@@ -41,9 +41,11 @@
         <!-- Search and Login -->
         <div class="nav-actions hidden lg:flex items-center gap-2 w-full lg:w-auto">
             <div class="search-box relative w-full lg:w-auto">
-                <input type="text" placeholder="Cari berita..."
-                    class="search-input border border-slate-300 rounded-full px-4 py-2 pl-10 w-full text-sm font-normal lg:w-auto focus:outline-none focus:ring-primary focus:border-primary"
-                    id="searchInput" />
+                <form action="{{ route('news.index') }}" method="GET">
+                    <input name="search" type="text" placeholder="Cari berita..."
+                        class="search-input border border-slate-300 rounded-full px-4 py-2 pl-10 w-full text-sm font-normal lg:w-auto focus:outline-none focus:ring-primary focus:border-primary"
+                        id="searchInput" />
+                </form>
                 <!-- Search Icon -->
                 <span class="search-icon absolute inset-y-0 left-3 flex items-center text-slate-400">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
