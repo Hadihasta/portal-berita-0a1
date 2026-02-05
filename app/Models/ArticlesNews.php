@@ -15,17 +15,17 @@ class ArticlesNews extends Model
         'slug',
         'thumbnail',
         'content',
-        'is_featured',
+        'is_featured' => 'boolean',
         'views',
     ];
 
     public function category()
     {
-        return $this->belongsTo(Categories::class);
+        // harus di tentukan kalau tidak dia buat id_category
+        return $this->belongsTo(Categories::class, 'category_id');
     }
-
     public function author()
     {
-        return $this->belongsTo(Author::class);
+        return $this->belongsTo(Author::class, 'author_id');
     }
 }
