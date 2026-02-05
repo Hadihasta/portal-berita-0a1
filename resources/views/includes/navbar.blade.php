@@ -54,7 +54,7 @@
                     </svg>
                 </span>
             </div>
-            <a href="{{ url('login.html') }}"
+            <a href="/admin"
                 class="btn-login bg-primary px-8 py-2 rounded-full text-white font-semibold h-fit text-sm lg:text-base">
                 Masuk
             </a>

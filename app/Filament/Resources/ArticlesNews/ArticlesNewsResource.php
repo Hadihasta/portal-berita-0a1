@@ -47,7 +47,12 @@ class ArticlesNewsResource extends Resource
                 ->required(),
             TextInput::make('title')
                 ->live(onBlur: true)
-                ->afterStateUpdated(fn(Set $set, ?string $state) => $set('slug', Str::slug($state)))
+                ->afterStateUpdated(function (Set $set, ?string $state) {
+                    if (!$state) return;
+
+                    $timestamp = now()->format('YmdHis');
+                    $set('slug', Str::slug($state) . '-' . $timestamp);
+                })
                 ->required(),
             TextInput::make('slug')->readOnly(),
             FileUpload::make('thumbnail')

@@ -13,7 +13,10 @@ class LandingController extends Controller
         $featureds = ArticlesNews::where('is_featured', true)->get();
         // ambil yang terbaru limit 4
         $news = ArticlesNews::orderBy('created_at', 'desc')->get()->take(4);
-        $newsDownList = ArticlesNews::orderBy('created_at', 'desc')->get()->take(20);
+        $newsDownList = ArticlesNews::orderBy('created_at', 'desc')
+            ->skip(4)
+            ->take(20)
+            ->get();
         return view('pages.landing', compact('articleBanners', 'featureds', 'news', 'newsDownList'));
     }
 }
