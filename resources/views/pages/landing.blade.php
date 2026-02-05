@@ -20,6 +20,7 @@
                 box-sizing: border-box;
             }
 
+
             /* Hero Swiper */
             .hero-section {
                 max-width: 1400px;
@@ -489,10 +490,16 @@
             }
 
 
-
+            .section {
+                display: block;
+            }
 
             /* Responsive */
             @media (max-width: 1024px) {
+
+                .section {
+                    display: none;
+                }
 
                 .news-layout {
                     grid-template-columns: 1fr;
@@ -505,6 +512,29 @@
                 .main-news,
                 .side-news {
                     grid-column: span 1;
+                }
+
+                .container-news {
+                    height: auto;
+                }
+
+                .news-layout {
+                    grid-template-columns: 1fr;
+                    gap: 2rem;
+                }
+
+                .sidebar {
+                    height: auto;
+                    overflow: visible;
+                }
+
+                .news-list {
+                    gap: 1rem;
+                }
+
+                .news-item img {
+                    width: 160px;
+                    height: 120px;
                 }
             }
 
@@ -534,6 +564,8 @@
                     width: 100%;
                     height: 200px;
                 }
+
+
             }
 
             @media (max-width: 640px) {
@@ -563,6 +595,36 @@
 
                 .main-news-image {
                     height: 250px;
+                }
+
+
+                .news-item {
+                    flex-direction: column;
+                    padding: 0;
+                }
+
+                .news-item img {
+                    width: 100%;
+                    height: 220px;
+                    border-radius: 12px;
+                }
+
+                .sidebar {
+                    padding: 1rem;
+                }
+
+                .side-item {
+                    align-items: flex-start;
+                }
+
+                .side-item img {
+                    width: 80px;
+                    height: 80px;
+                }
+
+                .container-news {
+                    margin: 3rem auto;
+                    padding: 0 1rem;
                 }
             }
 
