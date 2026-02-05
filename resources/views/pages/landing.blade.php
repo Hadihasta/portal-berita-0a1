@@ -69,7 +69,7 @@
             }
 
             .slide-title {
-                font-family: 'Playfair Display', serif;
+                font-family: Inter, system-ui, sans-serif;
                 font-size: 2.75rem;
                 font-weight: 900;
                 color: white;
@@ -427,9 +427,12 @@
             }
 
             .news-title {
+                /* font-family: 'Playfair Display', serif; */
+                font-family: Inter, system-ui, sans-serif;
                 font-size: 1.05rem;
                 font-weight: 700;
                 margin-bottom: 0.5rem;
+
             }
 
             .news-excerpt {
@@ -698,7 +701,12 @@
         {{-- ================= NEWS ================= --}}
         <section class="container-news">
             <div class="news-layout">
+                <div>
+                    <h2 class="section-title">Berita Terbaru</h2>
+                </div>
+                <div class="section-header">
 
+                </div>
                 {{-- MAIN --}}
                 <div class="news-list">
                     @foreach ($news as $item)
@@ -725,10 +733,10 @@
                 <aside class="sidebar">
                     <h3>The News</h3>
                     @foreach ($newsDownList as $side)
-                        <a href="#" class="side-item">
+                        <a href="{{ route('news.show', $side->slug) }}" class="side-item">
                             <img src="{{ asset('storage/' . $side->thumbnail) }}" alt="">
                             <div>
-                                <p class="side-title">{{ $side->title }}</p>
+                                <p class="side-title news-title">{{ $side->title }}</p>
                                 <span class="side-time">
                                     <div class="news-excerpt-2line">
                                         {!! $side->content !!}
@@ -744,38 +752,39 @@
         </section>
 
 
-        <!-- Berita Terbaru Section -->
+        {{-- Dilihat terbanyak --}}
         <section class="section">
             <div class="section-header">
                 <div>
-                    <h2 class="section-title">Berita Terbaru</h2>
+                    {{-- <h2 class="section-title">Berita Populer</h2> --}}
                 </div>
             </div>
 
             <div class="news-grid">
                 <!-- Main News (First Article) -->
-                @if (isset($news[0]))
-                    <a href="{{ url('detail-MotoGp.html') }}" class="main-news">
+                @if (isset($mostViewed[0]))
+                    <a href="{{ route('news.show', $mostViewed[0]->slug) }}" class="main-news">
                         <div class="main-news-image-wrapper">
                             <span class="article-category"
                                 style="position: absolute; top: 1.5rem; left: 1.5rem; z-index: 10;">
-                                {{ $news[0]->category->title }}
+                                {{ $mostViewed[0]->category->title }}
                             </span>
-                            <img src="{{ asset('storage/' . $news[0]->thumbnail) }}" alt="{{ $news[0]->title }}"
+                            <img src="{{ asset('storage/' . $mostViewed[0]->thumbnail) }}" alt="{{ $news[0]->title }}"
                                 class="main-news-image">
                         </div>
                         <div class="main-news-content">
-                            <h2 class="main-news-title">{{ $news[0]->title }}</h2>
-                            <div class="main-news-excerpt">{!! $news[0]->content !!}</div>
-                            <p class="article-date">{{ \Carbon\Carbon::parse($news[0]->created_at)->format('d F Y') }}</p>
+                            <h2 class="main-news-title">{{ $mostViewed[0]->title }}</h2>
+                            <div class="main-news-excerpt">{!! $mostViewed[0]->content !!}</div>
+                            <p class="article-date">
+                                {{ \Carbon\Carbon::parse($mostViewed[0]->created_at)->format('d F Y') }}</p>
                         </div>
                     </a>
                 @endif
 
                 <!-- Side News (Rest of Articles) -->
                 <div class="side-news">
-                    @foreach ($news->skip(1) as $new)
-                        <a href="{{ url('detail-MotoGp.html') }}" class="news-item">
+                    @foreach ($mostViewed->skip(1) as $new)
+                        <a href="{{ route('news.show', $new->slug) }}" class="news-item">
                             <img src="{{ asset('storage/' . $new->thumbnail) }}" alt="{{ $new->title }}"
                                 class="news-item-image">
                             <div class="news-item-content">
@@ -798,13 +807,13 @@
                 <div>
                     <h2 class="section-title">Berita Unggulan
                 </div>
-                <a href="{{ route('news.index') }}"class="btn-view-all">Lihat Semua</a>
+                <a href="{{ route('news.index') }}" class="btn-view-all">Lihat Semua</a>
             </div>
 
             <div class="featured-grid">
                 @foreach ($featureds as $index => $featured)
                     <div class="wrapper-featured">
-                        <a href="{{ url('detail-MotoGp.html') }}"
+                        <a href="{{ route('news.show', $featured->slug) }}"
                             class="article-card fade-in-up stagger-{{ ($index % 4) + 1 }}">
                             <div class="article-image-wrapper">
                                 <span class="article-category">{{ $featured->category->title }}</span>
@@ -812,7 +821,7 @@
                                     class="article-image">
                             </div>
                             <div class="article-content">
-                                <h3 class="article-title">{{ $featured->title }}</h3>
+                                <h3 class="article-title news-title">{{ $featured->title }}</h3>
                                 <div class="news-excerpt">
                                     {!! $featured->content !!}
                                 </div>
