@@ -4,6 +4,20 @@
 
 @section('content')
 
+
+    <style>
+        .news-excerpt {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            /* jumlah baris */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
+
+
     <!-- Detail Berita -->
     <div class="flex flex-col px-4 lg:px-14 mt-10">
         <div class="font-bold text-xl lg:text-2xl mb-6 text-center lg:text-left m-[200px]">
@@ -35,10 +49,12 @@
                                     </div>
                                     <div class="flex gap-3 flex-col lg:flex-row">
                                         <img src="{{ asset('storage/' . $sideArticle->thumbnail) }}" alt=""
-                                            class="max-h-36 rounded-xl object-cover">
-                                        <div class="">
+                                            class="lg:w-1/2 w-full max-h-36 rounded-xl object-cover">
+
+                                        <div class="lg:w-1/2 w-full">
                                             <p class="font-bold text-sm lg:text-base">{{ $sideArticle->title }}</p>
-                                            <p class="text-slate-400 mt-2 text-sm lg:text-xs">{!! \Str::limit($sideArticle->content, 60) !!}</p>
+                                            <div class="text-slate-400 mt-2 text-sm lg:text-xs news-excerpt">
+                                                {!! $sideArticle->content !!}</div>
                                         </div>
                                     </div>
                                 </div>

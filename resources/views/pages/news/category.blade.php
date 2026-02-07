@@ -3,6 +3,20 @@
 @section('title', $category->title)
 
 @section('content')
+
+    <style>
+        .news-excerpt {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            /* jumlah baris */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
+
+
     <!-- Header -->
     <div class="w-full mb-16 bg-[#F6F6F6]">
         <h1 class="text-center font-bold text-2xl p-24">{{ $category->title }}</h1>
@@ -23,6 +37,7 @@
                         <img src="{{ asset('storage/' . $article->thumbnail) }}" alt="{{ $article->title }}"
                             class="w-full rounded-xl mb-3" style="height: 200px; object-fit:cover;">
                         <p class="font-bold text-base mb-1">{{ $article->title }}</p>
+
                         <p class="text-slate-400">{{ \Carbon\Carbon::parse($article->created_at)->diffForHumans() }}</p>
                     </div>
                 </a>

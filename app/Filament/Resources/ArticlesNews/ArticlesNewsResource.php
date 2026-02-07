@@ -75,7 +75,7 @@ class ArticlesNewsResource extends Resource
             TextColumn::make('slug'),
             ImageColumn::make('thumbnail'),
             ToggleColumn::make('is_featured'),
-        ])
+        ])->defaultSort('created_at', 'desc')
             ->filters([
                 SelectFilter::make('author_id')
                     ->relationship('author', 'name')
